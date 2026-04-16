@@ -138,24 +138,29 @@ const App: React.FC = () => {
             <div className="container">
                 {!hasData ? (
                     <div className="empty-state">
-                        <div className="empty-icon">📂</div>
-                        <h2>暂无班级名单</h2>
-                        <p>请点击下方按钮导入 Excel/CSV 文件开始点名</p>
-                        <p className="detail-hint">
-                            表格要求：文件名称即为班级名称，支持多文件同时导入。<br />
-                            内容格式：第一列为学生姓名，第二列为权重（可选）。
-                        </p>
-                        <p className="ps-hint">
-                            PS：权重默认不填为 1，数值越高被抽到的概率越大。
-                        </p>
-                        <button
-                            className="big-import-btn"
-                            onClick={() => fileInputRef.current?.click()}
-                            style={{ color: "white" }}
-                        >
-                            导入班级名单
-                        </button>
+                        <button className="big-import-btn" onClick={() => fileInputRef.current?.click()}>导入班级名单</button>
                     </div>
+                    <div className="container">
+          /* 核心还原：空状态引导文案 */
+          <div className="empty-state">
+            <div className="empty-icon">📂</div>
+            <h2>暂无班级名单</h2>
+            <p>请点击下方按钮导入 Excel/CSV 文件开始点名</p>
+            <p className="detail-hint">
+              表格要求：文件名称即为班级名称，支持多文件同时导入。<br />
+              内容格式：第一列为学生姓名，第二列为权重（可选）。
+            </p>
+            <p className="ps-hint">
+              PS：权重默认不填为 1，数值越高被抽到的概率越大。
+            </p>
+            <button 
+              className="big-import-btn" 
+              onClick={() => fileInputRef.current?.click()}
+              style={{ color: "white" }}
+            >
+              导入班级名单
+            </button>
+          </div>
                 ) : (
                     <div className="main-stage">
                         <RollZone
